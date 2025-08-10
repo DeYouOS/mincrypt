@@ -1064,10 +1064,10 @@ static void scalar_base_mult(felem nx, felem ny, felem nz,
     }
     table_offset = 0;
     for (j = 0; j <= 32; j += 32) {
-      char bit0 = p256_get_bit(scalar, 31 - i + j);
-      char bit1 = p256_get_bit(scalar, 95 - i + j);
-      char bit2 = p256_get_bit(scalar, 159 - i + j);
-      char bit3 = p256_get_bit(scalar, 223 - i + j);
+      char bit0 = (char)p256_get_bit(scalar, 31 - i + j);
+      char bit1 = (char)p256_get_bit(scalar, 95 - i + j);
+      char bit2 = (char)p256_get_bit(scalar, 159 - i + j);
+      char bit3 = (char)p256_get_bit(scalar, 223 - i + j);
       limb index = bit0 | (bit1 << 1) | (bit2 << 2) | (bit3 << 3);
 
       select_affine_point(px, py, kPrecomputed + table_offset, index);

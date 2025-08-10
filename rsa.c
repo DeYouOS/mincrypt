@@ -135,10 +135,10 @@ static void modpow(const RSAPublicKey* key,
     // Convert to bigendian byte array
     for (i = key->len - 1; i >= 0; --i) {
         uint32_t tmp = aaa[i];
-        *inout++ = tmp >> 24;
-        *inout++ = tmp >> 16;
-        *inout++ = tmp >> 8;
-        *inout++ = tmp >> 0;
+        *inout++ = (uint8_t)(tmp >> 24);
+        *inout++ = (uint8_t)(tmp >> 16);
+        *inout++ = (uint8_t)(tmp >> 8);
+        *inout++ = (uint8_t)(tmp >> 0);
     }
 }
 
